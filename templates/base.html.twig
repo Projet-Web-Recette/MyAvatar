@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <title>{% block page_title %}{% endblock %}</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{ asset("css/styles.css") }}">
+    {% block page_scripts %}{% endblock %}
+</head>
+<body>
+<header>
+    <div>
+        <a href="{{ path('home') }}">
+            <span></span>
+        </a>
+        <nav>
+        </nav>
+    </div>
+</header>
+<div id="flashes-container">
+    <!-- Pour chaque message du type "success" -->
+    {% for message in app.flashes('success') %}
+        <span class="flashes flashes-success">{{ message }}</span>
+    {% endfor %}
+
+    <!-- Pour chaque message du type "info" -->
+    {% for message in app.flashes('info') %}
+        <span class="flashes flashes-info">{{ message }}</span>
+    {% endfor %}
+
+    <!-- Pour chaque message du type "error" -->
+    {% for message in app.flashes('error') %}
+        <span class="flashes flashes-error">{{ message }}</span>
+    {% endfor %}
+</div>
+{% block page_content %}{% endblock %}
+</body>
+</html>

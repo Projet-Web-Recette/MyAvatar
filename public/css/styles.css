@@ -1,0 +1,71 @@
+@import "tailwindcss.min.css";
+
+/*
+ * Import fonts
+ */
+@font-face {
+    font-family: 'Bungee';
+    src: url('../fonts/Bungee-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Degular';
+    src: url('../fonts/Degular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.bungee-font {
+    font-family: 'Bungee', sans-serif;
+}
+
+.degular-font {
+    font-family: 'Degular', sans-serif;
+}
+
+/*
+ * Import colors
+ */
+
+.bg-black-main {
+    background-color: #0B0B0B;
+}
+
+.text-black-main {
+    color: #0B0B0B;
+}
+
+.bg-white-main {
+    background-color: #EFEFEF;
+}
+
+.text-white-main {
+    color: #EFEFEF;
+}
+
+.bg-gray-main {
+    background-color: #A0A0A0;
+}
+
+.text-gray-main {
+    color: #A0A0A0;
+}
+
+.bg-blue-main {
+    background-color: #4E80EF;
+}
+
+
+.text-blue-main {
+    color: #4E80EF;
+}
+
+.bg-blue-secondary {
+    background-color: #4676EE;
+}
+
+.text-blue-secondary {
+    color: #4676EE;
+}
