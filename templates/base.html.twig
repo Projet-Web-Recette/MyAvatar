@@ -8,30 +8,28 @@
 </head>
 <body>
 <header>
-    <div>
-        <a href="{{ path('home') }}">
-            <span></span>
-        </a>
-        <nav>
-        </nav>
-    </div>
+    {% include "navbar.html.twig" %}
 </header>
-<div id="flashes-container">
-    <!-- Pour chaque message du type "success" -->
-    {% for message in app.flashes('success') %}
-        <span class="flashes flashes-success">{{ message }}</span>
-    {% endfor %}
+<main>
+    {% block page_content %}{% endblock %}
+</main>
+<footer>
+    <div id="flashes-container">
+        <!-- Pour chaque message du type "success" -->
+        {% for message in app.flashes('success') %}
+            <span class="flashes flashes-success">{{ message }}</span>
+        {% endfor %}
 
-    <!-- Pour chaque message du type "info" -->
-    {% for message in app.flashes('info') %}
-        <span class="flashes flashes-info">{{ message }}</span>
-    {% endfor %}
+        <!-- Pour chaque message du type "info" -->
+        {% for message in app.flashes('info') %}
+            <span class="flashes flashes-info">{{ message }}</span>
+        {% endfor %}
 
-    <!-- Pour chaque message du type "error" -->
-    {% for message in app.flashes('error') %}
-        <span class="flashes flashes-error">{{ message }}</span>
-    {% endfor %}
-</div>
-{% block page_content %}{% endblock %}
+        <!-- Pour chaque message du type "error" -->
+        {% for message in app.flashes('error') %}
+            <span class="flashes flashes-error">{{ message }}</span>
+        {% endfor %}
+    </div>
+</footer>
 </body>
 </html>
