@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Inscription{% endblock %}
+
+{% block page_content %}
+    <div class="section flex justify-center items-center">
+        <div class="w-80 rounded-2xl p-6 border-4 border-black-main black-shadow-box">
+            <form action="{{ path('register') }}" method="post" class="flex flex-col justify-center items-center space-y-6">
+                <h1 class="text-4xl font-bold pt-3">Inscription</h1>
+
+                <div>
+                    <label for="username" class="block mb-1 text-md">
+                        Nom d'utilisateur
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" name="username" id="username"
+                           class="w-full border-2 border-black-main p-2 rounded-lg" required>
+                </div>
+
+                <div>
+                    <label for="email" class="block mb-1 text-md">
+                        Adresse email
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="email" name="email" id="email"
+                           class="w-full border-2 border-black-main p-2 rounded-lg" required>
+                </div>
+
+                <div>
+                    <label for="password" class="block mb-1 text-md">
+                        Mot de passe
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="password" name="password" id="password"
+                           class="w-full border-2 border-black-main p-2 rounded-lg" required>
+                </div>
+
+                <div>
+                    <label for="password_confirm" class="block mb-1 text-md">
+                        Confirmation du mot de passe
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="password" name="password_confirm" id="password_confirm"
+                           class="w-full border-2 border-black-main p-2 rounded-lg" required>
+                </div>
+
+                <div class="w-4/5">
+                    <label for="profile_picture" class="block mb-1 text-md">
+                        Photo de profil
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="file" name="profile_picture" id="profile_picture"
+                           class="w-full border-2 border-black-main p-2 rounded-lg" required>
+                </div>
+
+                <div class="pt-3">
+                    <input type="submit" value="S'inscrire"
+                           class="hover:bg-gray-300 font-bold p-2 px-4 rounded-xl transition-all duration-200
+                           border-2 border-black-main black-shadow-box">
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

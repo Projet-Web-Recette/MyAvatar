@@ -4,30 +4,44 @@
     <title>{% block page_title %}{% endblock %}</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="{{ asset("css/styles.css") }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"/>
+    <link rel="icon" href="{{ asset("img/logo.svg") }}"/>
     {% block page_scripts %}{% endblock %}
 </head>
 <body>
-<header>
+<header class="sticky top-0 z-50">
     {% include "navbar.html.twig" %}
 </header>
-<main>
+<main class="relative">
     {% block page_content %}{% endblock %}
 </main>
 <footer>
-    <div id="flashes-container">
-        <!-- Pour chaque message du type "success" -->
+    <div class="fixed bottom-0 right-0 flex flex-col items-end space-y-2 p-4 fade-out">
+        <!-- "success" flashmessage -->
         {% for message in app.flashes('success') %}
-            <span class="flashes flashes-success">{{ message }}</span>
+            <span class="flex flex-row justify-content items-center space-x-4 text-white-main bg-green-500
+                         white-color p-2 px-4 rounded-lg border-2 border-black-main black-shadow-box">
+                <span class="material-symbols-outlined select-none justify-center items-center text-green-700">check_circle</span>
+                <span class="text-xl font-bold text-center justify-center items-center">{{ message }}</span>
+            </span>
         {% endfor %}
 
-        <!-- Pour chaque message du type "info" -->
+        <!-- "info" flashmessage -->
         {% for message in app.flashes('info') %}
-            <span class="flashes flashes-info">{{ message }}</span>
+            <span class="flex flex-row justify-content items-center space-x-4 text-white-main bg-yellow-500
+                         white-color p-2 px-4 rounded-lg border-2 border-black-main black-shadow-box">
+                <span class="material-symbols-outlined select-none justify-center items-center text-yellow-700">help</span>
+                <span class="text-xl font-bold text-center justify-center items-center">{{ message }}</span>
+            </span>
         {% endfor %}
 
-        <!-- Pour chaque message du type "error" -->
+        <!-- "error" flashmessage -->
         {% for message in app.flashes('error') %}
-            <span class="flashes flashes-error">{{ message }}</span>
+            <span class="flex flex-row justify-content items-center space-x-4 text-white-main bg-red-500
+                         white-color p-2 px-4 rounded-lg border-2 border-black-main black-shadow-box">
+                <span class="material-symbols-outlined select-none justify-center items-center text-red-700">cancel</span>
+                <span class="text-xl font-bold text-center justify-center items-center">{{ message }}</span>
+            </span>
         {% endfor %}
     </div>
 </footer>

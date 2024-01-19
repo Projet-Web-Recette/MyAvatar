@@ -1,12 +1,58 @@
 {% extends 'base.html.twig' %}
 
-{% block page_title %}Home{% endblock %}
+{% block page_title %}MyAvatar{% endblock %}
 
 {% block page_content %}
-    <p class="bungee-font uppercase font-bold text-9xl">
-        BUNGEE
-    </p>
-    <p class="degular-font uppercase font-bold text-9xl">
-        DEGULAR
-    </p>
+    <div class="section flex flex-row justify-center items-center space-x-24">
+        <div class="flex flex-col justify-center items-center w-72">
+            <h1 class="text-4xl text-center bungee-font select-none">MyAvatar &#10024;</h1>
+
+            <p class="text-center text-gray-700">
+                MyAvatar est un service qui vous permet de centraliser votre image de profil sur plusieurs sites
+            </p>
+
+            <a href="{{ path("register") }}" class="mt-4 font-bold border-2 border-black-main black-shadow-box
+            rounded-xl p-2 px-4 hover:bg-gray-300 transition-all duration-200">S'inscrire</a>
+        </div>
+
+        <div class="p-6 rounded-2xl border-4 border-black-main black-shadow-box w-64 space-y-8 select-none
+        bg-gradient-to-br from-gray-200 to-gray-300">
+            <div class="flex flex-row justify-between items-center">
+                <h2 class="text-2xl font-bold">John Doe</h2>
+
+                <img src="{{ asset('img/avatar.png') }}" alt="avatar" class="w-12 h-12 rounded-full
+                border-2 border-black-main black-shadow-box">
+            </div>
+
+            <p class="text-gray-700">
+                Hello, I'm John Doe, I'm a developer and I use <strong>MyAvatar</strong> to centralize my profile picture
+            </p>
+        </div>
+    </div>
+
+    <div class="section flex flex-col justify-center items-center bg-gray-main space-y-12">
+        <h1 class="text-4xl text-center bungee-font select-none">Fonctionnalités</h1>
+
+        <div class="grid grid-cols-2 gap-8">
+            <div class="bg-gray-200 p-6 rounded-2xl text-center border-4 border-black-main black-shadow-box">
+                <h2 class="text-2xl font-bold">Principe Simple</h2>
+                <p class="text-gray-700">Centralisez votre image de profil</p>
+            </div>
+
+            <div class="bg-gray-200 p-6 rounded-2xl text-center border-4 border-black-main black-shadow-box">
+                <h2 class="text-2xl font-bold">Utilisation Facile</h2>
+                <p class="text-gray-700">Inscrivez vous avec votre image de profil et c'est tout !</p>
+            </div>
+
+            <div class="bg-gray-200 p-6 rounded-2xl text-center border-4 border-black-main black-shadow-box">
+                <h2 class="text-2xl font-bold">Gratuit</h2>
+                <p class="text-gray-700">MyAvatar est gratuit et le restera</p>
+            </div>
+
+            <div class="bg-gray-200 p-6 rounded-2xl text-center border-4 border-black-main black-shadow-box">
+                <h2 class="text-2xl font-bold">Open Source</h2>
+                <p class="text-gray-700">MyAvatar est open source, vous pouvez donc contribuer</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}

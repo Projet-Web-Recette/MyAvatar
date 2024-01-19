@@ -17,6 +17,18 @@
     font-style: normal;
 }
 
+* {
+    font-family: 'Degular', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #EFEFEF;
+    color: #0B0B0B;
+}
+
 .bungee-font {
     font-family: 'Bungee', sans-serif;
 }
@@ -24,6 +36,7 @@
 .degular-font {
     font-family: 'Degular', sans-serif;
 }
+
 
 /*
  * Import colors
@@ -37,6 +50,14 @@
     color: #0B0B0B;
 }
 
+.border-black-main {
+    border-color: #0B0B0B;
+}
+
+.black-shadow-box {
+    box-shadow: 4px 4px 0px 0px #0B0B0B;
+}
+
 .bg-white-main {
     background-color: #EFEFEF;
 }
@@ -46,17 +67,16 @@
 }
 
 .bg-gray-main {
-    background-color: #A0A0A0;
+    background-color: #d2d2d2;
 }
 
 .text-gray-main {
-    color: #A0A0A0;
+    color: #d2d2d2;
 }
 
 .bg-blue-main {
     background-color: #4E80EF;
 }
-
 
 .text-blue-main {
     color: #4E80EF;
@@ -68,4 +88,51 @@
 
 .text-blue-secondary {
     color: #4676EE;
+}
+
+
+/*
+ * Flash message fade out and disappear
+ */
+.fade-out {
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut;
+    -webkit-animation-duration: 5s;
+    animation-duration: 5s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+
+/*
+ * Make the sections of the page a full screen height (considering the navbar)
+ */
+.section {
+    min-height: calc(100vh - 72px);
 }
