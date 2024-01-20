@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Changer l'image de profil{% endblock %}
+
+{% block page_content %}
+    <div class="section flex flex-row justify-center items-center space-x-24">
+        <div class="w-80 rounded-2xl p-6 border-4 border-black-main black-shadow-box">
+            <form action="{{ path("edit_pp") }}"
+                  method="post"
+                  name="edit_pp"
+                  class="flex flex-col justify-center items-center space-y-6"
+                  enctype="multipart/form-data">
+                <h1 class="text-4xl font-bold text-center pt-3">Changer l'image de profil</h1>
+
+                <div class="w-4/5">
+                    <label for="edit_pp_fileProfilePicture" class="block mb-1 text-md">
+                        Photo de profil
+                        <span class="text-red-500">*</span>
+                    </label>
+                    <input type="file"
+                           name="edit_pp[fileProfilePicture]"
+                           id="edit_pp_fileProfilePicture"
+                           accept="image/png, image/jpeg"
+                           maxsize="10M"
+                           class="w-full border-2 border-black-main black-shadow-box p-2 rounded-lg" required>
+                </div>
+
+                <div class="pt-3">
+                    <input type="submit"
+                           value="Changer"
+                           id="edit_pp_register"
+                           name="edit_pp[register]"
+                           class="hover:bg-gray-300 font-bold p-2 px-4 rounded-xl transition-all duration-200
+                            border-2 border-black-main black-shadow-box">
+                </div>
+
+
+                {{ form_row(form._token) }}
+            </form>
+        </div>
+
+        {# Text : Ancienne image and below a rounded-full version of the last profilePicture #}
+        <div class="w-80 p-6">
+            <div class="flex flex-col justify-center items-center space-y-6">
+                <h1 class="text-2xl font-bold bungee-font select-none">Ancienne image</h1>
+                <img src="{{ asset('uploads/pp/' ~ app.user.profilePicture) }}"
+                     alt="Ancienne image de profil" class="w-40 h-40 rounded-full border-4 border-black-main black-shadow-box select-none">
+            </div>
+        </div>
+    </div>
+{% endblock %}

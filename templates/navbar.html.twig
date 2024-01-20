@@ -4,7 +4,16 @@
     </a>
 
     <nav class="flex flex-row justify-between items-center space-x-4">
-        <a href="{{ path('login') }}" class="p-2 font-bold hover:text-gray-300 transition-all duration-200">Connexion</a>
-        <a href="{{ path("register") }}" class="rounded-xl bg-white-main text-black-main p-2 px-4 font-bold hover:bg-gray-300 transition-all duration-200">S'inscrire</a>
+        <a href="{{ path('avatar') }}" class="p-2 font-bold hover:text-gray-300 transition-all duration-200">Avatars</a>
+        {% if not is_granted('ROLE_USER') %}
+            <a href="{{ path('login') }}" class="p-2 font-bold hover:text-gray-300 transition-all duration-200">Connexion</a>
+            <a href="{{ path('register') }}" class="rounded-xl bg-white-main text-black-main p-2 px-4 font-bold hover:bg-gray-300 transition-all duration-200">S'inscrire</a>
+        {% else %}
+            <a href="{{ path('profile') }}" class="flex flex-row justify-between items-center space-x-2 hover:text-gray-300 transition-all duration-200">
+                <div class="p-2 font-bold capitalize">{{ app.user.login }}</div>
+                <img src="{{ asset('uploads/pp/' ~ app.user.profilePicture) }}" alt="avatar"
+                     class="rounded-full w-10 h-10 border-2 border-white-main white-shadow-box select-none">
+            </a>
+        {% endif %}
     </nav>
 </div>

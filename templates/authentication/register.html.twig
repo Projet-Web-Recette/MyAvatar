@@ -5,59 +5,75 @@
 {% block page_content %}
     <div class="section flex justify-center items-center">
         <div class="w-80 rounded-2xl p-6 border-4 border-black-main black-shadow-box">
-            <form action="{{ path('register') }}" method="post" class="flex flex-col justify-center items-center space-y-6">
-                <h1 class="text-4xl font-bold pt-3">Inscription</h1>
+            <form action="{{ path('register') }}"
+                  method="post"
+                  class="flex flex-col justify-center items-center space-y-6"
+                  enctype="multipart/form-data"
+                  name="user">
+                <legend class="text-4xl font-bold pt-3">Inscription</legend>
 
                 <div>
-                    <label for="username" class="block mb-1 text-md">
+                    <label for="user_login" class="block mb-1 text-md">
                         Nom d'utilisateur
                         <span class="text-red-500">*</span>
                     </label>
-                    <input type="text" name="username" id="username"
-                           class="w-full border-2 border-black-main p-2 rounded-lg" required>
+                    <input type="text"
+                           name="user[login]"
+                           id="user_login"
+                           class="w-full border-2 border-black-main black-shadow-box p-2 rounded-lg"
+                           minlength="4"
+                           maxlength="20"
+                           required>
                 </div>
 
                 <div>
-                    <label for="email" class="block mb-1 text-md">
+                    <label for="user_email" class="block mb-1 text-md">
                         Adresse email
                         <span class="text-red-500">*</span>
                     </label>
-                    <input type="email" name="email" id="email"
-                           class="w-full border-2 border-black-main p-2 rounded-lg" required>
+                    <input type="email"
+                           name="user[email]"
+                           id="user_email"
+                           class="w-full border-2 border-black-main black-shadow-box p-2 rounded-lg" required>
                 </div>
 
                 <div>
-                    <label for="password" class="block mb-1 text-md">
+                    <label for="user_plainPassword" class="block mb-1 text-md">
                         Mot de passe
                         <span class="text-red-500">*</span>
                     </label>
-                    <input type="password" name="password" id="password"
-                           class="w-full border-2 border-black-main p-2 rounded-lg" required>
-                </div>
-
-                <div>
-                    <label for="password_confirm" class="block mb-1 text-md">
-                        Confirmation du mot de passe
-                        <span class="text-red-500">*</span>
-                    </label>
-                    <input type="password" name="password_confirm" id="password_confirm"
-                           class="w-full border-2 border-black-main p-2 rounded-lg" required>
+                    <input type="password"
+                           name="user[plainPassword]"
+                           id="user_plainPassword"
+                           minlength="8"
+                           maxlength="30"
+                           pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,30}$"
+                           class="w-full border-2 border-black-main black-shadow-box p-2 rounded-lg" required>
                 </div>
 
                 <div class="w-4/5">
-                    <label for="profile_picture" class="block mb-1 text-md">
+                    <label for="user_fileProfilePicture" class="block mb-1 text-md">
                         Photo de profil
                         <span class="text-red-500">*</span>
                     </label>
-                    <input type="file" name="profile_picture" id="profile_picture"
-                           class="w-full border-2 border-black-main p-2 rounded-lg" required>
+                    <input type="file"
+                           name="user[fileProfilePicture]"
+                           id="user_fileProfilePicture"
+                           accept="image/png, image/jpeg"
+                           maxsize="10M"
+                           class="w-full border-2 border-black-main black-shadow-box p-2 rounded-lg" required>
                 </div>
 
                 <div class="pt-3">
-                    <input type="submit" value="S'inscrire"
-                           class="hover:bg-gray-300 font-bold p-2 px-4 rounded-xl transition-all duration-200
-                           border-2 border-black-main black-shadow-box">
+                    <input type="submit"
+                            value="S'inscrire"
+                            id="user_register"
+                            name="user[register]"
+                            class="hover:bg-gray-300 font-bold p-2 px-4 rounded-xl transition-all duration-200
+                            border-2 border-black-main black-shadow-box">
                 </div>
+
+                {{ form_row(form._token) }}
             </form>
         </div>
     </div>
