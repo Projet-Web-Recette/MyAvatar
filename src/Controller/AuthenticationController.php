@@ -15,6 +15,9 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AuthenticationController extends AbstractController
 {
+    /**
+     * Route to login
+     */
     #[Route('/login', name: 'login', methods: ['GET', 'POST'])]
     public function login(AuthenticationUtils $utils,
                           FlashMessageHelperInterface $flashMessageHelper): Response
@@ -25,17 +28,22 @@ class AuthenticationController extends AbstractController
         }
 
         $lastLogin = $utils->getLastUsername();
-        return $this->render("authentication/login.html.twig", [
-            'last_login' => $lastLogin,]);
+        return $this->render("authentication/login.html.twig", ['last_login' => $lastLogin]);
     }
 
 
+    /**
+     * Route to logout
+     */
     #[Route('/logout', name: 'logout', methods: ['GET'])]
-    public function logout(FlashMessageHelperInterface $flashMessageHelper): never {
+    public function logout(): never {
         throw new \Exception("Cette route n'est pas censée être appelée. Vérifiez security.yaml");
     }
 
 
+    /**
+     * Route to register
+     */
     #[Route('/register', name: 'register', methods: ['GET', 'POST'])]
     public function register(Request $request,
                              EntityManagerInterface $entityManager,

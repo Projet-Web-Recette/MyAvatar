@@ -4,33 +4,33 @@
 
 {% block page_content %}
     <div class="section flex justify-center items-center">
-        <div class="w-80 rounded-2xl p-6 border-4 border-black-main black-shadow-box">
+        <div class="w-96 rounded-2xl p-6 border-4 border-black-main black-shadow-box">
             <form action="{{ path("login") }}"
                   method="post"
                   name="login_form"
-                  class="flex flex-col justify-center items-center space-y-6">
-                <h1 class="text-4xl font-bold pt-3">Connexion</h1>
+                  class="flex flex-col justify-center items-center space-y-8">
+                <h1 class="text-6xl font-bold pt-3">Connexion</h1>
 
                 <div>
-                    <label for="login" class="block mb-1 text-md">Nom d'utilisateur</label>
+                    <label for="login" class="block mb-1 text-lg">Nom d'utilisateur</label>
                     <input type="text" name="_username" id="login" value="{{ last_login }}" required
-                           class="w-full border-2 border-black-main black-shadow-box p-2 rounded-lg">
+                           class="w-full text-lg border-2 border-black-main black-shadow-box p-2 rounded-lg">
                 </div>
 
                 <div>
-                    <label for="password" class="block mb-1 text-md">Mot de passe</label>
+                    <label for="password" class="block mb-1 text-lg">Mot de passe</label>
                     <input type="password" name="_password" id="password" required
-                           class="w-full border-2 border-black-main black-shadow-box p-2 rounded-lg">
+                           class="w-full text-lg border-2 border-black-main black-shadow-box p-2 rounded-lg">
                 </div>
 
                 <div class="pt-3">
                     <input type="submit" value="Se connecter"
-                           class="hover:bg-gray-300 font-bold p-2 px-4 rounded-xl transition-all duration-200
+                           class="hover:bg-gray-300 font-bold text-lg p-2 px-4 rounded-xl transition-all duration-200
                            border-2 border-black-main black-shadow-box">
                 </div>
 
                 <div>
-                    <a href="{{ path("register") }}" class="text-blue-main hover:underline">Pas encore inscrit ?</a>
+                    <a href="{{ path("register") }}" class="text-black-main text-lg hover:underline">Pas encore inscrit ?</a>
                 </div>
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">

@@ -16,22 +16,34 @@ class UserManager implements UserManagerInterface
     )
     {}
 
+    /**
+     * Create a new user (hash the password and save the profile picture)
+     */
     public function processNewUser(User $user, ?string $plainPassword, ?UploadedFile $fileProfilePicture): void
     {
         $this->hashPassword($user, $plainPassword);
         $this->saveProfilePicture($user, $fileProfilePicture);
     }
 
+    /**
+     * Edit the user's profile picture
+     */
     public function processEditUserPP(User $user, ?UploadedFile $fileProfilePicture): void
     {
         $this->saveProfilePicture($user, $fileProfilePicture);
     }
 
+    /**
+     * Edit the user's password (hash the new password)
+     */
     public function processEditUserPassword(User $user, ?string $oldPassword, ?string $plainPassword): void
     {
         $this->hashPassword($user, $plainPassword);
     }
 
+    /**
+     * Check if the old password is correct
+     */
     public function checkOldPassword(User $user, ?string $oldPassword): bool
     {
         return $this->passwordHasher->isPasswordValid($user, $oldPassword);

@@ -30,7 +30,7 @@ class EditPPType extends AbstractType
                     )
                 ]
             ])
-            ->add('register', SubmitType::class)
+            ->add('submit', SubmitType::class)
         ;
     }
 

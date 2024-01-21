@@ -142,5 +142,5 @@ body {
  * Make the sections of the page a full screen height (considering the navbar)
  */
 .section {
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - 80px);
 }

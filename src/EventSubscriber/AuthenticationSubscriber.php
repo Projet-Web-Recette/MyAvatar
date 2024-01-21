@@ -16,16 +16,25 @@ class AuthenticationSubscriber
     ){}
 
 
+    /**
+     * Flash message on login success
+     */
     #[AsEventListener]
     public function onLoginSuccess(LoginSuccessEvent $event) {
         $this->flashMessageHelper->addSuccessFlash('Connexion réussie !');
     }
 
+    /**
+     * Flash message on login failure
+     */
     #[AsEventListener]
     public function onLoginFailure(LoginFailureEvent $event) {
         $this->flashMessageHelper->addErrorFlash('Login et/ou mot de passe incorrect !');
     }
 
+    /**
+     * Flash message on logout
+     */
     #[AsEventListener]
     public function onLogout(LogoutEvent $event) {
         $this->flashMessageHelper->addSuccessFlash('Déconnexion réussie !');

@@ -14,17 +14,23 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class UserController extends AbstractController
 {
+    /**
+     * Route to display the profile of the user (need authentication)
+     */
     #[Route('/profile', name: 'profile', methods: ['GET'])]
     public function profile(FlashMessageHelperInterface $flashMessageHelper): Response
     {
         if(!$this->isGranted('ROLE_USER')) {
-            $flashMessageHelper->addInfoFlash('Vous devez être connecté pour accéder à cette page !');
+            $flashMessageHelper->addErrorFlash('Vous devez être connecté pour accéder à cette page !');
             return $this->redirectToRoute('home');
         }
         return $this->render("user/profile.html.twig");
     }
 
 
+    /**
+     * Route to edit the profile picture of the user (need authentication)
+     */
     #[Route('/profile/edit_pp', name: 'edit_pp', methods: ['GET', 'POST'])]
     public function profileEditPP(Request $request,
                                   EntityManagerInterface $entityManager,
@@ -32,7 +38,7 @@ class UserController extends AbstractController
                                   FlashMessageHelperInterface $flashMessageHelper): Response
     {
         if(!$this->isGranted('ROLE_USER')) {
-            $flashMessageHelper->addInfoFlash('Vous devez être connecté pour accéder à cette page !');
+            $flashMessageHelper->addErrorFlash('Vous devez être connecté pour accéder à cette page !');
             return $this->redirectToRoute('home');
         }
 
@@ -61,6 +67,9 @@ class UserController extends AbstractController
     }
 
 
+    /**
+     * Route to edit the password of the user (need authentication)
+     */
     #[Route('/profile/edit_password', name: 'edit_password', methods: ['GET', 'POST'])]
     public function profileEditPassword(Request $request,
                                         EntityManagerInterface $entityManager,
@@ -68,7 +77,7 @@ class UserController extends AbstractController
                                         FlashMessageHelperInterface $flashMessageHelper): Response
     {
         if(!$this->isGranted('ROLE_USER')) {
-            $flashMessageHelper->addInfoFlash('Vous devez être connecté pour accéder à cette page !');
+            $flashMessageHelper->addErrorFlash('Vous devez être connecté pour accéder à cette page !');
             return $this->redirectToRoute('home');
         }
 

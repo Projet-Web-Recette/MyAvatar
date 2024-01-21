@@ -12,6 +12,9 @@ class AppManager implements AppManagerInterface
     )
     {}
 
+    /**
+     * Get the path of the avatar of a user (if the user has no avatar, return the default avatar)
+     */
     public function getAvatarPath(string $filename): string
     {
         $path = $this->folderProfilePictures . '/' . $filename . '.png';

@@ -12,10 +12,12 @@ class FlashMessageHelper implements FlashMessageHelperInterface
         private RequestStack $requestStack
     ){}
 
+    /**
+     * Flash messages from form errors
+     */
     public function addFormErrorsAsFlash(FormInterface $form) : void
     {
         $errors = $form->getErrors(true);
-        //Ajouts des erreurs du formulaire comme messages flash de la catégorie "error".
         $flashBag = $this->requestStack->getSession()->getFlashBag();
         foreach ($errors as $error) {
             $errorMsg = $error->getMessage();
@@ -23,18 +25,27 @@ class FlashMessageHelper implements FlashMessageHelperInterface
         }
     }
 
+    /**
+     * Flash messages for success
+     */
     public function addSuccessFlash(string $message) : void
     {
         $flashBag = $this->requestStack->getSession()->getFlashBag();
         $flashBag->add('success', $message);
     }
 
+    /**
+     * Flash messages for info
+     */
     public function addInfoFlash(string $message): void
     {
         $flashBag = $this->requestStack->getSession()->getFlashBag();
         $flashBag->add('info', $message);
     }
 
+    /**
+     * Flash messages for error
+     */
     public function addErrorFlash(string $message) : void
     {
         $flashBag = $this->requestStack->getSession()->getFlashBag();
