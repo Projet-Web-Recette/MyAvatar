@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block page_title %}Avatars{% endblock %}
+
+{% block page_content %}
+    <div class="section flex flex-col justify-center items-center space-y-12">
+        <div class="flex flex-col items-center space-y-2 w-full">
+            <h1 class="text-6xl bungee-font select-none">Trouvez l'avatar de quelqu'un</h1>
+            <p class="text-4xl text-gray-700">Entrez simplement l'adresse email de la personne dont vous voulez l'avatar !</p>
+        </div>
+
+        <form action="{{ path('avatar') }}"
+              class="flex flex-row justify-center items-center space-x-2 w-1/4"
+              name="avatar"
+              method="post">
+
+            <input type="email" id="avatar_email" name="avatar[email]" required
+                   class="w-full border-4 border-black-main black-shadow-box p-2 rounded-lg text-2xl" placeholder="toto@gmail.com">
+            <button type="submit" id="avatar_submit" name="avatar[submit]"
+                    class="border-4 border-black-main black-shadow-box bg-black-main text-white-main p-2 rounded-lg material-symbols-outlined hover:text-gray-300 transition-all duration-200">search</button>
+
+            {{ form_row(form._token) }}
+        </form>
+    </div>
+{% endblock %}
