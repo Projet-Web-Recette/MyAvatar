@@ -19,7 +19,7 @@ class AppManager implements AppManagerInterface
     {
         $path = $this->folderProfilePictures . '/' . $filename . '.png';
         if(!file_exists($path)) {
-            $path = $this->folderProfilePictures . '/' . $filename . '.jpeg';
+            $path = $this->folderProfilePictures . '/' . $filename . '.jpg';
             if(!file_exists($path)) {
                 $path = $this->folderProfilePictures . '/../../img/defaultuser.jpg';
             }
